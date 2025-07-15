@@ -14,7 +14,7 @@ export default function Navbar() {
   const token = null;
   return (
     <div className="h-14 bg-transparent">
-      <div className="max-w-7xl h-full container flex items-center justify-between mx-auto py-12">
+      <div className="max-w-7xl px-5 h-full container flex items-center justify-between mx-auto py-12">
         <Image
           src={"/EventKu.svg"}
           width={0}

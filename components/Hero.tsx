@@ -32,28 +32,38 @@ export default function Hero() {
         </button>
       </div>
 
-      <div className="d-flex flex-row flex-nowrap justify-content-center align-items-center gap-5 header-image">
-        {/* <Image
-          src="/images/1.png"
-          width={100}
-          height={100}
-          alt="semina"
-          className="img-1"
-        />
-        <Image
-          src="/images/2.png"
-          width={100}
-          height={100}
-          alt="semina"
-          className="img-2"
-        />
-        <Image
-          src="/images/1.png"
-          width={100}
-          height={100}
-          alt="semina"
-          className="img-1"
-        /> */}
+      {/* Hero Images */}
+      <div className="overflow-hidden flex items-center justify-center gap-10 mt-20">
+        <div className="relative w-[662px] h-[400px] flex-shrink-0 rounded-3xl overflow-hidden">
+          <Image
+            src="/images/hero-1.jpg"
+            alt="hero 1"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        <div className="relative w-[880px] h-[520px] shrink-0 rounded-3xl overflow-hidden">
+          <Image
+            src="/images/hero-2.jpg"
+            alt="hero 2"
+            fill
+            className="object-center"
+            priority
+          />
+          <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-black/90 to-transparent pointer-events-none" />
+        </div>
+
+        <div className="relative w-[662px] h-[400px] flex-shrink-0 rounded-3xl overflow-hidden">
+          <Image
+            src="/images/hero-3.jpg"
+            alt="hero 3"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
       </div>
     </>
   );
