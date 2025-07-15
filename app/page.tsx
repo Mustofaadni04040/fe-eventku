@@ -1,10 +1,11 @@
 import Header from "@/components/fragments/Header/Header";
+import Stats from "@/components/fragments/stats/Stats";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Header />
-      <div>text</div>
+      <Stats />
     </>
   );
 }
