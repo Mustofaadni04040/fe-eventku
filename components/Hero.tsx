@@ -43,6 +43,7 @@ export default function Hero() {
             fill
             className="object-cover"
             priority
+            sizes="100%"
           />
         </div>
 
@@ -53,6 +54,7 @@ export default function Hero() {
             fill
             className="object-center"
             priority
+            sizes="100%"
           />
           <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-black/90 to-transparent pointer-events-none" />
         </div>
@@ -64,6 +66,7 @@ export default function Hero() {
             fill
             className="object-cover"
             priority
+            sizes="100%"
           />
         </div>
       </div>

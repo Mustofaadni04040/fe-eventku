@@ -72,6 +72,7 @@ export default function Features() {
             fill
             className="object-cover"
             priority
+            sizes="100%"
           />
         </div>
       </div>
