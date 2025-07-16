@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function Features() {
   return (
     <div className="max-w-7xl mx-auto my-10">
-      <div className="flex items-center justify-between gap-10">
+      <div className="flex items-center justify-between gap-10 px-5">
         <Accordion
           type="single"
           collapsible

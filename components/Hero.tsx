@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
+import Button from "./ui/Button";
 
 export default function Hero() {
   return (
@@ -24,12 +25,13 @@ export default function Hero() {
           <br />
           dan membangun masa depan karier anda di bidang teknologi.
         </p>
-        <button
+        <Button
+          type="button"
           onClick={() => {}}
-          className="mt-10 flex mx-auto bg-purple-600 text-white font-normal px-6 py-3 rounded-full hover:bg-purple-700 transition-colors shadow-md shadow-purple-500/50"
+          classname="mt-10 flex mx-auto bg-purple-600 text-white font-normal px-6 py-3 rounded-full hover:bg-purple-700 transition-colors shadow-md shadow-purple-500/50"
         >
           Browse Now
-        </button>
+        </Button>
       </div>
 
       {/* Hero Images */}

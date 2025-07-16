@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { PopoverClose } from "@radix-ui/react-popover";
+import { usePathname } from "next/navigation";
+import Button from "./ui/Button";
 
 const navUrls = [
   { name: "Home", url: "/" },
@@ -11,6 +15,7 @@ const navUrls = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const token = null;
   return (
     <div className="h-14 bg-transparent">
@@ -30,7 +35,11 @@ export default function Navbar() {
               <li key={nav.name}>
                 <a
                   href={nav.url}
-                  className="text-white hover:text-primary transition-colors"
+                  className={`text-white hover:text-purple-500 transition-colors ${
+                    pathname === nav.url
+                      ? "text-purple-500 hover:text-purple-500"
+                      : ""
+                  }`}
                 >
                   {nav.name}
                 </a>
@@ -52,24 +61,24 @@ export default function Navbar() {
             </PopoverTrigger>
             <PopoverContent className="w-fit p-0">
               <PopoverClose asChild>
-                <button
+                <Button
                   type="button"
-                  className="bg-transparent text-primary hover:bg-slate-100"
+                  classname="bg-transparent text-primary hover:bg-slate-100"
                   // onClick={handleSignOut}
                 >
                   Sign Out
-                </button>
+                </Button>
               </PopoverClose>
             </PopoverContent>
           </Popover>
         ) : (
-          <button
+          <Button
             type="button"
-            className="bg-transparent border border-white text-white rounded-full px-6 py-2"
+            classname="bg-transparent border border-white text-white rounded-full px-6 py-2"
             //   onClick={() => router.push("/auth/signin")}
           >
             Sign In
-          </button>
+          </Button>
         )}
       </div>
     </div>
