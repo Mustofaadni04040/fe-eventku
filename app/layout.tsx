@@ -5,6 +5,7 @@ import { ToasterProvider } from "@/context/ToasterContext";
 import ToasterComponent from "@/components/ui/Providers/toaster";
 import Footer from "@/components/Footer";
 import { Providers } from "@/components/ui/Providers/providers";
+import AuthProvider from "@/components/ui/Providers/authProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,11 +26,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <Providers>
-          <ToasterProvider>
-            {children}
-            <ToasterComponent />
-            <Footer />
-          </ToasterProvider>
+          <AuthProvider>
+            <ToasterProvider>
+              {children}
+              <ToasterComponent />
+              <Footer />
+            </ToasterProvider>
+          </AuthProvider>
         </Providers>
       </body>
     </html>

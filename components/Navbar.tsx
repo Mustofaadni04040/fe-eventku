@@ -21,10 +21,8 @@ const navUrls = [
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
-  // const token = Cookies.get("token");
   const { token } = useSelector((state: any) => state.auth);
   const dispatch = useDispatch();
-  console.log(token);
 
   const handleSignOut = () => {
     Cookies.remove("token");
