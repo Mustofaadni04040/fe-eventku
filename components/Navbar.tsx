@@ -7,6 +7,9 @@ import { PopoverClose } from "@radix-ui/react-popover";
 import { usePathname, useRouter } from "next/navigation";
 import Button from "./ui/Button";
 import Link from "next/link";
+import Cookies from "js-cookie";
+import { useDispatch, useSelector } from "react-redux";
+import { setToken } from "@/redux/auth/authSlice";
 
 const navUrls = [
   { name: "Home", url: "/" },
@@ -18,7 +21,15 @@ const navUrls = [
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
-  const token = null;
+  // const token = Cookies.get("token");
+  const { token } = useSelector((state: any) => state.auth);
+  const dispatch = useDispatch();
+  console.log(token);
+
+  const handleSignOut = () => {
+    Cookies.remove("token");
+    dispatch(setToken(null));
+  };
 
   return (
     <div className="h-14 bg-transparent">
@@ -57,7 +68,7 @@ export default function Navbar() {
           <Popover>
             <PopoverTrigger>
               <Image
-                src="/default.jpeg"
+                src="/images/default.jpeg"
                 width={50}
                 height={50}
                 alt="profile"
@@ -68,8 +79,8 @@ export default function Navbar() {
               <PopoverClose asChild>
                 <Button
                   type="button"
-                  classname="bg-transparent text-primary hover:bg-slate-100"
-                  // onClick={handleSignOut}
+                  classname="bg-transparent text-primary hover:bg-slate-100 py-1 px-3"
+                  onClick={handleSignOut}
                 >
                   Sign Out
                 </Button>

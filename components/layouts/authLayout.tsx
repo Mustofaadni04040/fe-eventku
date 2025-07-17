@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button/index";
 import { useRouter } from "next/navigation";
-import { getAuth } from "@/utils/authStorage";
 import Link from "next/link";
+import Cookies from "js-cookie";
 
 export default function AuthLayout({
   children,
@@ -18,7 +18,7 @@ export default function AuthLayout({
   const router = useRouter();
 
   // useEffect(() => {
-  //   const { token } = getAuth();
+  //   const token = Cookies.get("token");
   //   if (token && token !== "undefined" && token !== "null") {
   //     router.push("/");
   //   } else {
