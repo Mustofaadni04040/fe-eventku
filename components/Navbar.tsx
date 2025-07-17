@@ -6,6 +6,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { PopoverClose } from "@radix-ui/react-popover";
 import { usePathname } from "next/navigation";
 import Button from "./ui/Button";
+import Link from "next/link";
 
 const navUrls = [
   { name: "Home", url: "/" },
@@ -17,6 +18,7 @@ const navUrls = [
 export default function Navbar() {
   const pathname = usePathname();
   const token = null;
+
   return (
     <div className="h-14 bg-transparent">
       <div className="max-w-7xl px-5 h-full container flex items-center justify-between mx-auto py-12">
@@ -31,20 +33,22 @@ export default function Navbar() {
 
         <nav>
           <ul className="flex items-center gap-16">
-            {navUrls.map((nav) => (
-              <li key={nav.name}>
-                <a
-                  href={nav.url}
-                  className={`text-white hover:text-purple-500 transition-colors ${
-                    pathname === nav.url
-                      ? "text-purple-500 hover:text-purple-500"
-                      : ""
-                  }`}
-                >
-                  {nav.name}
-                </a>
-              </li>
-            ))}
+            {navUrls.map((nav) => {
+              return (
+                <li key={nav.name}>
+                  <Link
+                    href={nav.url}
+                    className={` hover:text-purple-500 transition-colors ${
+                      pathname.startsWith(nav.url)
+                        ? "text-purple-500"
+                        : "text-white"
+                    }`}
+                  >
+                    {nav.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
