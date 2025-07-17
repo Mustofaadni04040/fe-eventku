@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { PopoverClose } from "@radix-ui/react-popover";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Button from "./ui/Button";
 import Link from "next/link";
 
@@ -17,6 +17,7 @@ const navUrls = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const token = null;
 
   return (
@@ -78,8 +79,8 @@ export default function Navbar() {
         ) : (
           <Button
             type="button"
-            classname="bg-transparent border border-white text-white rounded-full px-6 py-2"
-            //   onClick={() => router.push("/auth/signin")}
+            classname="bg-transparent border border-white text-white rounded-full px-6 py-2 hover:bg-slate-700 hover:border-slate-700 duration-200"
+            onClick={() => router.push("/auth/signin")}
           >
             Sign In
           </Button>
