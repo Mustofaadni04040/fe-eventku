@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
 import { setToken } from "@/redux/auth/authSlice";
 

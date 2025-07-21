@@ -8,7 +8,7 @@ import { postData } from "@/utils/fetchData";
 import Cookies from "js-cookie";
 import { ToasterContext } from "@/context/ToasterContext";
 import { useDispatch } from "react-redux";
-import { setToken } from "@/redux/auth/authSlice";
+import { setFirstName, setLastName, setToken } from "@/redux/auth/authSlice";
 
 export default function SigninPage() {
   const { setToaster } = useContext(ToasterContext);
@@ -35,10 +35,13 @@ export default function SigninPage() {
       );
 
       if (response?.data) {
+        console.log("response", response);
         router.push("/");
         setLoading(false);
         Cookies.set("token", response?.data?.token);
         dispatch(setToken(response?.data?.token));
+        dispatch(setFirstName(response?.data?.firstName));
+        dispatch(setLastName(response?.data?.lastName));
 
         setToaster({
           variant: "success",
@@ -46,7 +49,6 @@ export default function SigninPage() {
         });
       }
     } catch (error: any) {
-      console.log("error", error);
       setToaster({
         variant: "danger",
         message: error?.response?.data?.msg ?? "Internal Server Error",

@@ -21,7 +21,9 @@ const navUrls = [
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { token } = useSelector((state: any) => state.auth);
+  const { token, firstName, lastName } = useSelector(
+    (state: any) => state.auth
+  );
   const dispatch = useDispatch();
 
   const handleSignOut = () => {
@@ -63,28 +65,33 @@ export default function Navbar() {
         </nav>
 
         {token ? (
-          <Popover>
-            <PopoverTrigger>
-              <Image
-                src="/images/default.jpeg"
-                width={50}
-                height={50}
-                alt="profile"
-                className="rounded-full w-8 h-auto object-cover"
-              />
-            </PopoverTrigger>
-            <PopoverContent className="w-fit p-0">
-              <PopoverClose asChild>
-                <Button
-                  type="button"
-                  classname="bg-transparent text-primary hover:bg-slate-100 py-1 px-3"
-                  onClick={handleSignOut}
-                >
-                  Sign Out
-                </Button>
-              </PopoverClose>
-            </PopoverContent>
-          </Popover>
+          <div className="flex items-center gap-5">
+            <span className="text-white text-sm">
+              Hi, {firstName} {lastName}
+            </span>
+            <Popover>
+              <PopoverTrigger>
+                <Image
+                  src="/images/default.jpeg"
+                  width={50}
+                  height={50}
+                  alt="profile"
+                  className="rounded-full w-8 h-auto object-cover"
+                />
+              </PopoverTrigger>
+              <PopoverContent className="w-fit p-0">
+                <PopoverClose asChild>
+                  <Button
+                    type="button"
+                    classname="bg-transparent text-primary hover:bg-slate-100 py-1 px-3"
+                    onClick={handleSignOut}
+                  >
+                    Sign Out
+                  </Button>
+                </PopoverClose>
+              </PopoverContent>
+            </Popover>
+          </div>
         ) : (
           <Button
             type="button"

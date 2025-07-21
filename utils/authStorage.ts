@@ -1,19 +1,20 @@
+import Cookies from "js-cookie";
+
 type AuthData = {
   token?: string;
-  role?: string;
-  refreshToken?: string;
-  email?: string;
+  firstName?: string;
+  lastName?: string;
 };
 
 export const setAuth = (authData: AuthData) => {
-  localStorage.setItem("auth", JSON.stringify(authData));
+  Cookies.set("auth", JSON.stringify(authData));
 };
 
 export const getAuth = (): AuthData => {
-  const auth = localStorage.getItem("auth");
+  const auth = Cookies.get("auth");
   return auth ? JSON.parse(auth) : {};
 };
 
 export const clearAuth = () => {
-  localStorage.removeItem("auth");
+  Cookies.remove("auth");
 };
