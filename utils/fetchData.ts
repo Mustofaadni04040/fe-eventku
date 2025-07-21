@@ -16,3 +16,11 @@ export async function postData(url: string, payload: any, token?: string) {
     },
   });
 }
+
+export async function putData(url: string, payload: any, token?: string) {
+  return await instance.put(`${url}`, payload, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
