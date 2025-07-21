@@ -2,10 +2,9 @@ import EventClient from "@/components/clients/EventClient";
 import CreateAccount from "@/components/fragments/CreateAccount/CreateAccount";
 import Features from "@/components/fragments/Features/Features";
 import Header from "@/components/fragments/Header/Header";
-import Stats from "@/components/fragments/stats/Stats";
+import Stats from "@/components/fragments/Stats/Stats";
 
 export default async function HomePage() {
-  const token = null;
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/events`, {
     cache: "no-store",
   });
@@ -13,7 +12,7 @@ export default async function HomePage() {
   return (
     <>
       <Header />
-      <Stats />
+      <Stats data={data} />
       <div className="mt-20 bg-[#f5f7f9] py-24">
         <div className="max-w-7xl mx-auto px-5">
           <div className="flex items-end justify-between">
@@ -33,7 +32,7 @@ export default async function HomePage() {
         </div>
       </div>
       <Features />
-      {!token && <CreateAccount />}
+      <CreateAccount />
     </>
   );
 }
