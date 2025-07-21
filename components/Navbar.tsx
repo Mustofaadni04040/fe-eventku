@@ -9,7 +9,7 @@ import Button from "./ui/Button";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
-import { setToken } from "@/redux/auth/authSlice";
+import { setFirstName, setLastName, setToken } from "@/redux/auth/authSlice";
 
 const navUrls = [
   { name: "Home", url: "/" },
@@ -29,6 +29,8 @@ export default function Navbar() {
   const handleSignOut = () => {
     Cookies.remove("token");
     dispatch(setToken(null));
+    dispatch(setFirstName(null));
+    dispatch(setLastName(null));
   };
 
   return (

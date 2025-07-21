@@ -10,7 +10,7 @@ import { ToasterContext } from "@/context/ToasterContext";
 import { useDispatch } from "react-redux";
 import { setFirstName, setLastName, setToken } from "@/redux/auth/authSlice";
 
-export default function SigninPage() {
+export default function SignupPage() {
   const { setToaster } = useContext(ToasterContext);
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
@@ -63,17 +63,33 @@ export default function SigninPage() {
       <AuthLayout
         onSubmit={handleSubmit}
         loading={loading}
-        textButton="Masuk"
-        textLink="signup"
-        textForm="Belum punya akun?,"
-        textTitle="Sign In"
+        textButton="Daftar"
+        textLink="signin"
+        textForm="Sudah punya akun?,"
+        textTitle="Sign Up"
       >
         <FormInput
           value={form.email}
+          label="First Name"
+          name="firstname"
+          type="firstname"
+          placeholder="First name here"
+          onChange={handleChange}
+        />
+        <FormInput
+          value={form.password}
+          label="Last Name"
+          name="lastname"
+          type="lastname"
+          placeholder="Last name here"
+          onChange={handleChange}
+        />
+        <FormInput
+          value={form.password}
           label="Email"
           name="email"
           type="email"
-          placeholder="example@gmail.com"
+          placeholder="Example@gmail.com"
           onChange={handleChange}
         />
         <FormInput
@@ -82,6 +98,14 @@ export default function SigninPage() {
           name="password"
           type="password"
           placeholder="***********"
+          onChange={handleChange}
+        />
+        <FormInput
+          value={form.password}
+          label="Role"
+          name="role"
+          type="role"
+          placeholder="Your role here"
           onChange={handleChange}
         />
       </AuthLayout>
